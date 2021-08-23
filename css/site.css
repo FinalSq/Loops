@@ -4,7 +4,12 @@
     --dark-color: #292929;
     --white-color: #dff3e4;
 }
-
+.openSans{
+    font-family: 'Open Sans', sans-serif;
+}
+.indieFlower{
+    font-family: 'Indie Flower', cursive;
+}
 body {
     color: var(--dark-color);
 }
@@ -15,6 +20,9 @@ nav {
 
 footer {
     background-color: var(--dark-color);
+}
+p{
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1,
