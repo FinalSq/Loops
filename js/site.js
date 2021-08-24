@@ -5,7 +5,6 @@ function getValues() {
     let startValue = document.getElementById("startValue").value;
     let endValue = document.getElementById("endValue").value;
 
-
     // Parse into Integers
     startValue = parseInt(startValue);
     endValue = parseInt(endValue);
@@ -21,10 +20,6 @@ function getValues() {
     } else {
         alert("You must enter integers");
     }
-
-
-
-
 
 }
 
@@ -51,10 +46,16 @@ function displayNumbers(num) {
     for (let index = 0; index < num.length; index++) {
 
         let number = num[index];
-        templateRows += `<tr><td>${number}</td></tr>`;
+        let className = "even";
 
+        // Checks if number is even and makes it bold if it is
+        if (number % 2 == 0 && number !== 0) {
+            className = "even";
+        } else {
+            className = "odd";
+        }
+        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
     }
 
     document.getElementById("results").innerHTML = templateRows;
-
 }

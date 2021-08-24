@@ -34,6 +34,12 @@ h6 {
     color: var(--primary-color);
 }
 
+.odd{
+    font-weight: 100;
+}
+.even {
+    font-weight: bold;
+}
 
 footer .social>a {
     color: var(--white-color);
