@@ -2,20 +2,26 @@
 // Starts or Controller Function (initiates the logic and display functions)
 function getValues() {
     // Get values from the page
-    let startValue = document.getElementById("startValue").value;
-    let endValue = document.getElementById("endValue").value;
+    let startValue = document.getElementById("startValue");
+    let endValue = document.getElementById("endValue");
 
     // Parse into Integers
-    startValue = parseInt(startValue);
-    endValue = parseInt(endValue);
+    let parsedStartValue = parseInt(startValue.value);
+    let parsedEndValue = parseInt(endValue.value);
 
     // Validate the inputs to only be integers
-    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+    if (Number.isInteger(parsedStartValue) && Number.isInteger(parsedEndValue)) {
 
-        // Call generateNumbers
-        let numbers = generateNumbers(startValue, endValue);
-        // Call displayNumbers
-        displayNumbers(numbers);
+        if (parsedStartValue < parsedEndValue) {
+            // Call generateNumbers
+            let numbers = generateNumbers(parsedStartValue, parsedEndValue);
+            // Call displayNumbers
+            displayNumbers(numbers);
+        } else {
+            alert("Starting value must be less than ending value!")
+            startValue.value = 0;
+            endValue.value = 100;
+        }
 
     } else {
         alert("You must enter integers");
@@ -61,11 +67,11 @@ function displayNumbers(num) {
 }
 
 // Clears the display
-function clearDisplay(){
+function clearDisplay() {
     let startValue = document.getElementById("startValue");
     let endValue = document.getElementById("endValue");
     let destroyData = document.getElementById("results");
-    
+
     startValue.value = 0;
     endValue.value = 100;
 

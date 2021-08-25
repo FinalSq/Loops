@@ -71,31 +71,36 @@
                 <div class="col col-md-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            // Get the values from the page
-// Starts or Controller Function (initiates the logic and display functions)
+                            
+// Get the values from the page
 function getValues() {
     // Get values from the page
-    let startValue = document.getElementById("startValue").value;
-    let endValue = document.getElementById("endValue").value;
-
+    let startValue = document.getElementById("startValue");
+    let endValue = document.getElementById("endValue");
+                            
     // Parse into Integers
-    startValue = parseInt(startValue);
-    endValue = parseInt(endValue);
-
-    // Validate the inputs to only be integers
-    if (Number.isInteger(startValue) &amp&amp Number.isInteger(endValue)) {
-
-        // Call generateNumbers
-        let numbers = generateNumbers(startValue, endValue);
-        // Call displayNumbers
-        displayNumbers(numbers);
-
+    let parsedStartValue = parseInt(startValue.value);
+    let parsedEndValue = parseInt(endValue.value);
+                            
+    // Validate the inputs to only be integers and verifies that starting number is less than ending number
+    if (Number.isInteger(parsedStartValue) && Number.isInteger(parsedEndValue)) {
+        
+        if (parsedStartValue &lt parsedEndValue) {
+            // Call generateNumbers
+            let numbers = generateNumbers(parsedStartValue, parsedEndValue);
+             // Call displayNumbers
+            displayNumbers(numbers);
+        } else {
+            alert("Starting value must be less than ending value!")
+            startValue.value = 0;
+            endValue.value = 100;
+        }
+                            
     } else {
         alert("You must enter integers");
     }
-
+                            
 }
-
 // Generate numbers from the start value to the end value
 // Logic Function(s)
 function generateNumbers(sValue, eValue) {
@@ -153,38 +158,46 @@ function clearDisplay(){
                     <h2 class="border-bottom border-4 indieFlower">Function "getValues"</h2>
                     <p class="p-2">
                         <strong>getValues</strong> is a control function that executes by adding an
-                        <strong>addEventListener</strong> function to the button.
-                        This function grabs the values of the input boxes and stores them in their own variables
-                        (<strong>startValue</strong>
-                        and <strong>endValue</strong>).
-                        The two variables are then parsed in attempt to change the value into an integer. Next, the
-                        variables <strong>startValue</strong>
-                        and <strong>endValue</strong> are validated through an <strong>if statment</strong> to ensure that the value
-                        is indeed an integer, otherwise
-                        an alert is executed to inform the user that they must enter an integer. If two integers were
-                        added, the
-                        <strong>generateNumbers</strong> function is called, then the
+                        <strong>addEventListener</strong> function to the button with the id <strong>"submitButton"</strong>.
+                        This function grabs the input box elements and stores them in their own variables
+                        (<strong>startValue</strong> and <strong>endValue</strong>).
+                        The two variables are then parsed and stored in new variables (<strong>parsedStartValue</strong> and
+                        <strong>parsedEndValue</strong>). Next, the variables <strong>parsedStartValue</strong>
+                        and <strong>parsedEndValue</strong> are validated through an <strong>if statment</strong> to ensure
+                        that the value is indeed an integer, and that the user's starting input is less than the ending input, otherwise
+                        an alert is executed to inform the user that they must enter an integer (if a non-integer is input) 
+                        or input a starting number that is less than the ending number (if the starting number is less than the
+                        ending number). If the If two integers were added, the <strong>generateNumbers</strong> function is called, then the
                         <strong>displayNumbers</strong> function.
                     </p>
                     <h2 class="border-bottom border-4 indieFlower">Function "generateNumbers"</h2>
                     <p class="p-2">
-                        <strong>generateNumbers</strong> is a function that takes in two arguments and uses them in 
+                        <strong>generateNumbers</strong> is a function that takes in two arguments and uses them in
                         a <strong>for loop</strong> to generate an array of numbers that starts at the value indicated
-                        in the first input box, and ends at the value indicated in the last input box. For example, if the first
-                        input is 5 and the second input is 10, an array of numbers will be generated as such: <strong>[5,6,7,8,9,10]</strong>.
+                        in the first input box, and ends at the value indicated in the last input box. For example, if
+                        the first
+                        input is 5 and the second input is 10, an array of numbers will be generated as such:
+                        <strong>[5,6,7,8,9,10]</strong>.
                     </p>
                     <h2 class="border-bottom border-4 indieFlower">Function "displayNumbers"</h2>
                     <p class="p-2">
-                        The <strong>displayNumbers</strong> function takes a single argument of type array and adds each item of the 
-                        array to an html table. In order to determine which item to make bold, an <strong>if statment</strong> is used to 
-                        set a variable <strong>className</strong> to either odd or even. <strong>className</strong> is added to each table
-                        row and a css class is added to the customer css file. If <strong>className</strong> is "even" then the content of the
-                        row will be bold. If <strong>className</strong> is odd, the content of the row will remained unchanged.
+                        The <strong>displayNumbers</strong> function takes a single argument of type array and adds each
+                        item of the
+                        array to an html table. In order to determine which item to make bold, an <strong>if
+                            statment</strong> is used to
+                        set a variable <strong>className</strong> to either odd or even. <strong>className</strong> is
+                        added to each table
+                        row and a css class is added to the customer css file. If <strong>className</strong> is "even"
+                        then the content of the
+                        row will be bold. If <strong>className</strong> is odd, the content of the row will remained
+                        unchanged.
                     </p>
                     <h2 class="border-bottom border-4 indieFlower">Function "clearDisplay"</h2>
                     <p class="p-2">
-                        <strong>clearDisplay</strong> is a function that clears any numbers that have been displayed, as well as removes 
-                        the value's the user had set in the inputs. The function then sets the <strong>startValue</strong> to <strong>0</strong>
+                        <strong>clearDisplay</strong> is a function that clears any numbers that have been displayed, as
+                        well as removes
+                        the value's the user had set in the inputs. The function then sets the
+                        <strong>startValue</strong> to <strong>0</strong>
                         and the <strong>endValue</strong> to <strong>100</strong>.
                     </p>
                 </div>
