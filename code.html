@@ -132,6 +132,20 @@ function displayNumbers(num) {
 
     document.getElementById("results").innerHTML = templateRows;
 }
+// Clears the display
+function clearDisplay(){
+    let startValue = document.getElementById("startValue");
+    let endValue = document.getElementById("endValue");
+    let destroyData = document.getElementById("results");
+    
+    startValue.value = 0;
+    endValue.value = 100;
+
+    while (destroyData.firstChild) {
+        destroyData.removeChild(destroyData.firstChild);
+    }
+
+}
                         </code>
                     </pre>
                 </div>
@@ -166,6 +180,12 @@ function displayNumbers(num) {
                         set a variable <strong>className</strong> to either odd or even. <strong>className</strong> is added to each table
                         row and a css class is added to the customer css file. If <strong>className</strong> is "even" then the content of the
                         row will be bold. If <strong>className</strong> is odd, the content of the row will remained unchanged.
+                    </p>
+                    <h2 class="border-bottom border-4 indieFlower">Function "clearDisplay"</h2>
+                    <p class="p-2">
+                        <strong>clearDisplay</strong> is a function that clears any numbers that have been displayed, as well as removes 
+                        the value's the user had set in the inputs. The function then sets the <strong>startValue</strong> to <strong>0</strong>
+                        and the <strong>endValue</strong> to <strong>100</strong>.
                     </p>
                 </div>
             </div>

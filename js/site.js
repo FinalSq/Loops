@@ -59,3 +59,18 @@ function displayNumbers(num) {
 
     document.getElementById("results").innerHTML = templateRows;
 }
+
+// Clears the display
+function clearDisplay(){
+    let startValue = document.getElementById("startValue");
+    let endValue = document.getElementById("endValue");
+    let destroyData = document.getElementById("results");
+    
+    startValue.value = 0;
+    endValue.value = 100;
+
+    while (destroyData.firstChild) {
+        destroyData.removeChild(destroyData.firstChild);
+    }
+
+}

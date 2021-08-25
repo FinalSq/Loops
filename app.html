@@ -104,7 +104,7 @@
                                 <div class="col">
                                     <div>
                                         <input class="form-control" type="number" id="startValue"
-                                         value=0 aria-label="Start Value">
+                                         value=0 placeholder="Starting Number" aria-label="Start Value">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -115,10 +115,16 @@
                                 </div>
                                 <!-- BUTTON -->
                                 <div class="col-12 mt-2 d-flex justify-content-end">
-                                    <div>
+                                    <div class="me-3">
                                         <button id="btnSubmit" type="button"
                                             class="btn btn-dark p-2 border-4 border-secondary openSans">
                                             Display The LOOP!
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button id="btnClear" type="button"
+                                            class="btn btn-light p-2 border-4 border-secondary openSans">
+                                            Clear The LOOP!
                                         </button>
                                     </div>
                                 </div>
@@ -179,6 +185,7 @@
     <script src="/js/site.js"></script>
     <script>
         document.getElementById("btnSubmit").addEventListener("click", getValues);
+        document.getElementById("btnClear").addEventListener("click", clearDisplay);
     </script>
 </body>
 
